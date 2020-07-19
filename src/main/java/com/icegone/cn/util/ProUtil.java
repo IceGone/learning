@@ -21,7 +21,9 @@ import java.util.Properties;
 public class ProUtil {
     public static void main(String[] args) {
         ProUtil config = getInstance("config");
+        ProUtil application = getInstance("application");
         System.out.println(config.getPropertyAsString("dirPath"));
+        application.setProperty("test","bad");
     }
     private Properties properties = null;
     private ClassLoader oClassLoader = null;

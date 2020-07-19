@@ -10,7 +10,7 @@ public class FileDemoFilter {
 			//创建File对象
 			File file = new File("E:\\10_test");
 			//获取指定扩展名的文件,由于要对所有文件进行扩展名筛选，因此调用方法需要传递过滤器
-			File[] files = file.listFiles(new MyFileFilter());
+			File[] files = file.listFiles(new MyFilenameFilter());
 			//遍历获取到的所有符合条件的文件
 			for (File f : files) {
 				System.out.println(f);
@@ -19,7 +19,7 @@ public class FileDemoFilter {
 	}
 
 //定义类实现文件名称FilenameFilter过滤器
-class MyFileFilter implements FilenameFilter {
+class MyFilenameFilter implements FilenameFilter {
 	public boolean accept(File dir, String name) {
 		return name.endsWith(".java");
 	}
