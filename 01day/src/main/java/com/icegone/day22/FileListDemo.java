@@ -1,13 +1,14 @@
 package com.icegone.day22;
 
 
-import com.icegone.utils.ProUtil;
+
+import com.icegone.cn.util.ProUtil;
 
 import java.io.File;
 
 public class FileListDemo {
 			public static void main(String[] args) {
-				File file = new File(ProUtil.getInstance("dirPath").getPropertyAsString("testPath"));
+				File file = new File(ProUtil.getInstance("config").getPropertyAsString("testPath"));
 				getFileAll(file);
 			}
 			//获取指定目录以及子目录中的所有的文件
