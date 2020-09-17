@@ -1,1 +1,6 @@
 rootProject.name = 'learning'
+include 'day'
+include 'dnf'
+include '01day'
+include '02dnf'
+
