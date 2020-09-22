@@ -1,6 +1,5 @@
 package com.icegone.day25;
 
-import com.icegone.day23.FileInputStreamRead;
 import org.junit.Test;
 
 import java.io.*;

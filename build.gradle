@@ -62,6 +62,13 @@ dependencies {
 	//compile ('com.amap.api:search:latest.integration')
 	//引入高德地图API:定位
 	//compile ('com.amap.api:location:latest.integration')
+
+	// Hutool是一个小而全的Java工具类库，通过静态方法封装，降低相关API的学习成本，提高工作效率，使Java拥有函数式语言般的优雅，让Java语言也可以“甜甜的”
+	compile group: 'cn.hutool', name: 'hutool-all', version: '5.4.3'
+
+	// https://mvnrepository.com/artifact/org.projectlombok/lombok
+	compile group: 'org.projectlombok', name: 'lombok', version: '1.18.12'
+
 	//activemq 依赖包
 	compile group: 'org.apache.activemq', name: 'activemq-core', version: '5.4.2'	// poi依赖包
 	compile group: 'org.apache.poi', name: 'poi-ooxml', version: '3.17'
