@@ -19,15 +19,11 @@ import java.util.Properties;
  * @Date: 2020/9/15
  */
 public class ProUtil {
-    public static void main(String[] args) {
-        ProUtil config = getInstance("config");
-        ProUtil application = getInstance("application");
-        System.out.println(config.getPropertyAsString("dirPath"));
-        application.setProperty("test","bad");
-    }
+    public static String TEST_PATH=getInstance("config").getPropertyAsString("testPath");
+
     private Properties properties = null;
     private ClassLoader oClassLoader = null;
-    private static Map<String, ProUtil> instanceMap = new HashMap<String, ProUtil>();
+    private static Map<String, ProUtil> instanceMap = null;
     private String propertyFileName;
     private Log log = LogFactory.getLog(ProUtil.class);
 
@@ -44,7 +40,9 @@ public class ProUtil {
      * @return
      */
     public static ProUtil getInstance(String propertyFileName) {
-        if (instanceMap.get(propertyFileName) != null) {
+        if (null==instanceMap){
+            instanceMap=new HashMap<String, ProUtil>();
+        } else if (instanceMap.get(propertyFileName) != null) {
             return instanceMap.get(propertyFileName);
         }
         //实例化
@@ -162,5 +160,12 @@ public class ProUtil {
         } catch (Exception e) {
             log.error(propertyName + "属性文件更新错误" + e.getMessage(), e);
         }
+    }
+
+    public static void main(String[] args) {
+        ProUtil config = getInstance("config");
+        ProUtil application = getInstance("application");
+        System.out.println(config.getPropertyAsString("dirPath"));
+        application.setProperty("test","bad");
     }
 }

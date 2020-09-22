@@ -6,9 +6,11 @@ import com.icegone.cn.util.ProUtil;
 
 import java.io.File;
 
+import static com.icegone.cn.util.ProUtil.TEST_PATH;
+
 public class FileListDemo {
 			public static void main(String[] args) {
-				File file = new File(ProUtil.getInstance("config").getPropertyAsString("testPath"));
+				File file = new File(TEST_PATH);
 				getFileAll(file);
 			}
 			//获取指定目录以及子目录中的所有的文件
