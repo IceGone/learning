@@ -14,6 +14,71 @@ import java.util.Random;
  * @create: 2020-01-21
  **/
 public class RebotTest {
+
+    /***
+    * @Description: 阿拉德谋略站自动战斗 试炼5层第三个
+    * @Param: []
+    * @return: void
+    * @Author: bjchen
+    * @Date: 2020/11/28
+    */
+    @Test
+    public void autoAldStrateages(){
+        int startCount=19;
+        //退出阿拉德攻略战
+        mouseMoveRelative0AndAbsoultivebyLeftOrRight(0,622,15);
+        //开始阿拉德攻略战
+        //前戏：点击诺兰
+        mouseMoveRelative0AndAbsoultivebyLeftOrRight(0,478,257);
+        //点击阿拉德攻略战进入主页面
+        mouseMoveRelative0AndAbsoultivebyLeftOrRight(0,520,316);
+        //点击剧情模式
+        mouseMoveRelative0AndAbsoultivebyLeftOrRight(0,80,358);
+        //循环攻略
+        for (int i = 1; i <=startCount; ++i) {
+            System.out.println("阿拉德攻略战开始：次数--第 "+i+" 次-----------");
+            autoAldStrateage();
+        }
+        //退出阿拉德攻略战
+        mouseMoveRelative0AndAbsoultivebyLeftOrRight(0,622,15);
+    }
+
+    /***
+    * @Description: 一次单元
+    * @Param: []
+    * @return: void
+    * @Author: bjchen
+    * @Date: 2020/11/28
+    */
+    private void autoAldStrateage() {
+        //点击某阶段第一个
+        //mouseMoveRelative0AndAbsoultivebyLeftOrRight(0,300,253);
+        //点击某阶段第二个
+        //mouseMoveRelative0AndAbsoultivebyLeftOrRight(0,385,253);
+        //点击某阶段第三个
+        //mouseMoveRelative0AndAbsoultivebyLeftOrRight(0,475,253);
+        //点击某阶段第四个
+        mouseMoveRelative0AndAbsoultivebyLeftOrRight(0,554,253);
+        //点击开始挑战
+        mouseMoveRelative0AndAbsoultivebyLeftOrRight(0,317,461);
+        //点击开始
+        mouseMoveRelative0AndAbsoultivebyLeftOrRight(0,320,307);
+        //睡眠一定时间：战斗中
+        try{
+            Thread.sleep(80000+new Double(new Random().nextDouble()*2500).intValue());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        //胜利
+        mouseMoveRelative0AndAbsoultivebyLeftOrRight(0,320,307);
+        //延迟退出，重来
+        try{
+            Thread.sleep(5000+new Double(new Random().nextDouble()*250).intValue());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
+
     /***
     * @Description: 自动合成卡片 需要传入自动合成的次数 cardNum
     * @Param: []
@@ -227,6 +292,30 @@ public class RebotTest {
     }
 
     /***
+    * @Description: 鼠标移动：type 为0 代表 相对鼠标当前位置 移动x，y，并点击左键
+     *      *                 type 为1 代表 相对鼠标当前位置 移动x，y，并点击右键
+    * @Param: [type, x, y]
+    * @return: void
+    * @Author: bjchen
+    * @Date: 2020/11/28
+    */
+    public static void mouseMoveRelative0AndAbsoultivebyLeftOrRight(int type,int x,int y){
+        if(type==0){
+            mouseMoveRelative0AndAbsoultive1(0,0,0);
+            mouseMoveRelative0AndAbsoultive1(1,x,y);
+            onclickMouse("left");
+        }else if (type==1){
+            mouseMoveRelative0AndAbsoultive1(0,0,0);
+            mouseMoveRelative0AndAbsoultive1(1,x,y);
+            onclickMouse("right");
+        }
+
+
+
+
+    }
+
+    /***
     * @Description: 鼠标移动：type 为0 代表 相对屏幕坐标0点 移动x ，y
      *                        type 非0 代表 相对鼠标当前位置 移动x，y
     * @Param: [type, x, y]
@@ -246,7 +335,7 @@ public class RebotTest {
         try {
             robot = new Robot();
                 robot.mouseMove(width, heigh);
-                robot.delay(100);
+                robot.delay(300);
         } catch (AWTException e) {
             e.printStackTrace();
         }

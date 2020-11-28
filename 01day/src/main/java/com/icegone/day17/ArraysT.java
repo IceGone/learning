@@ -24,6 +24,9 @@ public class ArraysT {
         int[] arr2 = {1,3,4,5,6};
         int index = Arrays.binarySearch(arr2, 4); //index的值为2
         int index2= Arrays.binarySearch(arr2, 2); //index2的值为-1
+        //将数组arr的部分元素复制到arr2，替换掉arr2
+        System.arraycopy(arr,1,arr2,2,3);
+        System.out.println();
 
 
     }

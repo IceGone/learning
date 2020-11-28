@@ -1,5 +1,7 @@
 package com.icegone.day15;
 
+import java.util.Objects;
+
 /**
  * 描述人这个类，并定义功能根据年龄判断是否是同龄人
  * 由于要根据指定类的属性进行比较，这时只要覆盖Object中的equals方法
@@ -7,6 +9,7 @@ package com.icegone.day15;
  */
 class Person extends Object {
     int age;
+    String name;
     //在复写Object中的equals方法时，一定要注意public boolean equals(Object obj)的参数是Object类型，在调用对象的属性时，一定要进行类型转换，在转换之前必须进行类型判断。
     public boolean equals(Object obj) {
         //判断当前调用equals方法的对象和传递进来的对象是否是同一个
@@ -32,5 +35,17 @@ class Person extends Object {
     public static void main(String[] args) {
         Person p =new Person();
         new Person().equals(p);
+    }
+
+    /***
+    * @Description: 对成员函数进行hashcode相加
+    * @Param: []
+    * @return: int
+    * @Author: bjchen
+    * @Date: 2020/10/21
+    */
+    @Override
+    public int hashCode() {
+        return Objects.hash(age, name);
     }
 }

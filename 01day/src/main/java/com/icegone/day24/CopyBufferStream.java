@@ -90,6 +90,7 @@ public class CopyBufferStream {
         //3，读数据
         byte[] buffer = new byte[1024];
         int len = -1;
+        //读写都添加缓冲区
         while ((len = in.read(buffer)) != -1) {
             //4，写数据
             out.write(buffer, 0, len);
