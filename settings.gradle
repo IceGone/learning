@@ -6,4 +6,6 @@ include '02dnf'
 include 'multithreading'
 include 'multithreading'
 include '03_multithreading'
+include 'structures'
+include '04_structures'
 
